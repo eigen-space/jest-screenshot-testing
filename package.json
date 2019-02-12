@@ -1,12 +1,12 @@
 {
     "name": "@eigenspace/jest-screenshot-testing",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "private": false,
     "scripts": {
         "build": "webpack --config ./webpack.config.package.js --p --progress --mode production",
         "lint": "tslint 'src/**/*.{ts,tsx}'",
         "test": "jest",
-        "publish": "yarn test && yarn build && yarn publish ./dist --access public",
+        "build:publish": "yarn test && yarn build && yarn publish ./dist --access public",
         "hooks:pre-commit": "yarn test && lint-staged"
     },
     "husky": {
