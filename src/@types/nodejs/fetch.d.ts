@@ -7,9 +7,10 @@ declare global {
     namespace NodeJS {
         import MockInstance = jest.MockInstance;
 
-
+        // It used in tests, but a linter doesn't pass it.
+        // noinspection JSUnusedGlobalSymbols
         interface Global {
-            fetch: MockInstance<any>;
+            fetch: MockInstance<Function>;
         }
     }
 }

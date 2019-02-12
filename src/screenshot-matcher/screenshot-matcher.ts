@@ -37,8 +37,8 @@ export async function matchScreenshot(context: MatcherState, html: Html, css: Cs
     return snapshotMatch;
 }
 
-function updateSnapshot(matcherState: MatcherState, value: string): void {
-    const { currentTestName, snapshotState } = matcherState;
+function updateSnapshot(context: MatcherState, value: string): void {
+    const { currentTestName, snapshotState } = context;
 
     const keyPattern = new RegExp(`${currentTestName} \\d+$`);
     const matchedNames = Object.keys(snapshotState._snapshotData).filter(key => keyPattern.test(key));

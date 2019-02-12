@@ -9,14 +9,14 @@ import { matchScreenshot } from '../screenshot-matcher';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { ReactMatcherConfig } from './react-matcher-config';
 
-interface TestComponentArgs {
+interface ToMatchArgs {
     component: ReactElement<Dictionary> | ReactWrapper | ShallowWrapper;
     commonStyles: CSS;
     props: Dictionary;
     componentSource?: ReactElement<Dictionary>;
 }
 
-export async function toMatchComponentImageAsyncReact(this: MatcherState, received: TestComponentArgs): Promise<Dictionary> {
+export async function toMatchComponentImageAsyncReact(this: MatcherState, data: ToMatchArgs): Promise<Dictionary> {
     if (!ReactMatcherConfig.globalStyles) {
         throw new Error('Global styles is not set. Please, set it in ReactMatcherConfig.');
     }
@@ -25,7 +25,7 @@ export async function toMatchComponentImageAsyncReact(this: MatcherState, receiv
         throw new Error('Serializer styles is not set. Please, set it in ReactMatcherConfig.');
     }
 
-    const { component, commonStyles, props, componentSource } = received;
+    const { component, commonStyles, props, componentSource } = data;
 
     let preparedComponent = component;
     let rawHtml: Html;
@@ -49,14 +49,14 @@ export async function toMatchComponentImageAsyncReact(this: MatcherState, receiv
         json = create(preparedComponent).toJSON();
     }
 
-    const styleSnapshot = ReactMatcherConfig.serializer.styleSheetSerializer.print(json, () => rawHtml);
+    const styleSnapshot = ReactMatcherConfig.serializer.print(json, () => rawHtml);
     const separationIndex = styleSnapshot.indexOf('<');
     const html = styleSnapshot.slice(separationIndex);
     const css = styleSnapshot.slice(0, separationIndex);
 
-    // There no correct interface for GlobalStyles
+    // There no correct interface for GlobalStyles.
     // tslint:disable-next-line:no-any
-    const styles = ReactMatcherConfig.globalStyles.globalStyle.rules.join('') + (commonStyles || '');
+    const styles = (ReactMatcherConfig.globalStyles as any).rules.join('') + (commonStyles || '');
 
     const resultStyles = `${styles} \n ${css}`;
     return matchScreenshot(this, html, resultStyles);
