@@ -1,0 +1,55 @@
+{
+    "name": "@eigenspace/jest-screenshot-testing",
+    "version": "0.1.0",
+    "private": false,
+    "scripts": {
+        "build": "webpack --config ./webpack.config.package.js --p --progress --mode production",
+        "lint": "tslint 'src/**/*.{ts,tsx}'",
+        "test": "jest --coverage",
+        "test:ci": "jest --ci --coverage",
+        "hooks:pre-commit": "yarn test && lint-staged"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn hooks:pre-commit"
+        }
+    },
+    "lint-staged": {
+        "*.{ts,tsx}": [
+            "yarn lint"
+        ]
+    },
+    "dependencies": {
+        "react": "16.8.1",
+        "react-dom": "16.8.1",
+        "enzyme": "3.8.0",
+        "react-test-renderer": "16.8.1",
+        "jest": "23.6.0",
+        "jest-image-snapshot": "2.8.1",
+        "enzyme-to-json": "3.3.5"
+    },
+    "devDependencies": {
+        "@eigenspace/codestyle": "1.1.11",
+        "@types/enzyme": "3.1.17",
+        "@types/jest": "22.2.2",
+        "@types/jest-image-snapshot": "2.8.0",
+        "@types/react": "16.8.2",
+        "@types/react-dom": "16.8.0",
+        "@types/react-test-renderer": "16.8.0",
+        "clean-webpack-plugin": "1.0.1",
+        "copy-webpack-plugin": "4.6.0",
+        "dts-bundle": "https://github.com/Danilqa/dts-bundle.git#build",
+        "ts-loader": "5.3.3",
+        "typescript": "3.3.3",
+        "webpack": "4.29.3",
+        "webpack-cli": "3.2.3",
+        "whatwg-fetch": "3.0.0"
+    },
+    "main": "index.js",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/eigen-space/jest-screenshot-testing.git"
+    },
+    "license": "MIT"
+}
