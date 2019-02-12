@@ -1,3 +1,5 @@
+import './jest';
+
 declare module 'jest-screenshot-testing';
 
 // We manually set out ts-bundle because dts-bundle plugin doesn't work.

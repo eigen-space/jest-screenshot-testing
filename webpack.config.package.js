@@ -28,10 +28,13 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin('./dist/*'),
-        new CopyWebpackPlugin([{ from: 'package.json', to: 'package.json' }]),
-        // Temporary using. It will be replaced by dts bundle
-        new CopyWebpackPlugin([{ from: './src/index.d.ts', to: 'index.d.ts' }]),
-        new CopyWebpackPlugin([{ from: './src/@types/jest-types-workaround.d.ts', to: 'jest-types-workaround.d.ts' }])
+        new CopyWebpackPlugin([
+            { from: 'package.json', to: 'package.json' },
+            // Temporary using. It will be replaced by dts bundle
+            { from: './src/index.d.ts', to: 'index.d.ts' },
+            { from: './src/@types/jest.d.ts', to: 'jest.d.ts' },
+            { from: './src/@types/jest-types-workaround.d.ts', to: 'jest-types-workaround.d.ts' }
+        ])
     ],
     // We exclude react-test-renderer, jest-image-snapshot and etc. because they use react / react-dom and
     // take they to bundle. The same situation and with Enzyme.
@@ -60,7 +63,7 @@ module.exports = {
             root: 'jest',
             commonjs2: 'jest'
         },
-       'jest-image-snapshot': {
+        'jest-image-snapshot': {
             root: 'jest-image-snapshot',
             commonjs2: 'jest-image-snapshot'
         },
