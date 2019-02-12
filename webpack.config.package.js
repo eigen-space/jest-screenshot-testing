@@ -1,6 +1,5 @@
 const path = require('path');
 const fs = require('fs');
-const DtsBundlePlugin = require('./dev/webpack-plugins/dts-bundle');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
@@ -29,14 +28,8 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin('./dist/*'),
-        new DtsBundlePlugin({
-            name: libraryName,
-            // Because a dts bundle module clear 2 last symbols before splitting
-            baseDir: './dist//',
-            main: './dist/types/**/*.d.ts',
-            out: './index.d.ts'
-        }),
         new CopyWebpackPlugin([{ from: 'package.json', to: 'package.json' }]),
+        // Temporary using. It will be replaced by dts bundle
         new CopyWebpackPlugin([{ from: './src/index.d.ts', to: 'index.d.ts' }]),
         new CopyWebpackPlugin([{ from: './src/@types/jest-types-workaround.d.ts', to: 'jest-types-workaround.d.ts' }])
     ],
