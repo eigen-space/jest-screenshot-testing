@@ -14,7 +14,6 @@
 
 # production
 /build
-/styleguide
 
 # misc
 .DS_Store
@@ -28,10 +27,6 @@
 
 # jest diffs
 /src/**/*-diff.png
-
-# sandbox
-/src/sandbox/sandbox.tsx
-/src/sandbox/sandbox.styles.ts
 
 # debug
 npm-debug.log*
