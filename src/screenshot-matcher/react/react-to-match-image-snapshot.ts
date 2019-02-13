@@ -17,10 +17,6 @@ interface ToMatchArgs {
 }
 
 export async function toMatchComponentImageAsyncReact(this: MatcherState, data: ToMatchArgs): Promise<Dictionary> {
-    if (!ReactMatcherConfig.globalStyles) {
-        throw new Error('Global styles is not set. Please, set it in ReactMatcherConfig.');
-    }
-
     if (!ReactMatcherConfig.serializer) {
         throw new Error('Serializer styles is not set. Please, set it in ReactMatcherConfig.');
     }
@@ -44,7 +40,12 @@ export async function toMatchComponentImageAsyncReact(this: MatcherState, data: 
         json = toJson(mountComponent as CommonWrapper);
     } else {
         const componentClone = cloneElement(component as ReactElement<Dictionary>, props);
-        preparedComponent = createElement(ReactMatcherConfig.themeWrapper, {}, componentClone);
+
+        if (ReactMatcherConfig.themeWrapper) {
+            preparedComponent = createElement(ReactMatcherConfig.themeWrapper, {}, componentClone);
+        } else {
+            preparedComponent = componentClone;
+        }
         rawHtml = renderToStaticMarkup(preparedComponent);
         json = create(preparedComponent).toJSON();
     }
@@ -54,10 +55,20 @@ export async function toMatchComponentImageAsyncReact(this: MatcherState, data: 
     const html = styleSnapshot.slice(separationIndex);
     const css = styleSnapshot.slice(0, separationIndex);
 
-    // There no correct interface for GlobalStyles.
-    // tslint:disable-next-line:no-any
-    const styles = (ReactMatcherConfig.globalStyles as any).rules.join('') + (commonStyles || '');
+    let globalStyles = '';
+    if (ReactMatcherConfig.globalStyles) {
+        // There no correct interface for GlobalStyles.
+        // tslint:disable-next-line:no-any
+        globalStyles += (ReactMatcherConfig.globalStyles as any).rules.join('');
+    }
 
-    const resultStyles = `${styles} \n ${css}`;
-    return matchScreenshot(this, html, resultStyles);
+    if (commonStyles) {
+        globalStyles += commonStyles;
+    }
+
+    if (globalStyles) {
+        globalStyles += '\n';
+    }
+
+    return matchScreenshot(this, html, `${globalStyles}${css}`);
 }

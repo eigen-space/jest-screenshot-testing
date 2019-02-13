@@ -4,6 +4,7 @@
         "sourceMap": false,
         "moduleResolution": "node",
         "outDir": "dist/types",
+        "target": "es6",
         "typeRoots": [
             "node_modules/@types"
         ]
