@@ -8,6 +8,7 @@ const libraryName = JSON.parse(packageJson).name;
 
 module.exports = {
     entry: './src/package-api.js',
+    mode: 'production',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index.js',
