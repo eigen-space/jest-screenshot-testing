@@ -25,10 +25,17 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
-"@eigenspace/codestyle@1.1.11":
-  version "1.1.11"
-  resolved "https://registry.yarnpkg.com/@eigenspace/codestyle/-/codestyle-1.1.11.tgz#2a8f21a2d7c28391d6ca08be992514c701095cb5"
-  integrity sha512-TIhroXVj3l1BRragnk0qf/2ZnpLrHWM0Tc/wNsgzUSw4nvUpPKaZJ1TIJhG4v/fQKGU3AMJZN0F27UFyr3DiDA==
+"@eigenspace/codestyle@latest":
+  version "1.1.15"
+  resolved "https://registry.yarnpkg.com/@eigenspace/codestyle/-/codestyle-1.1.15.tgz#90ec0f159086a824b5c6d59f306a878c6a2c1540"
+  integrity sha512-UBOJDUclsbPv8yFJ+eq82akJ4CRN56Dy5B1X57ieTHwIym5HmKOIVBHDEyBEtlmwX0hl7VsS3yoOJMdHumwA+Q==
+
+"@eigenspace/helper-scripts@1.0.44":
+  version "1.0.44"
+  resolved "https://registry.yarnpkg.com/@eigenspace/helper-scripts/-/helper-scripts-1.0.44.tgz#0662943d36a0302d3036b4e098309d2b67afe6fb"
+  integrity sha512-C6IrWQ4sYOxnpi6zxE26kycX4BgNt47y6tTwvTAqqWVMTQOGbal0KZE5+5XBpGRona6gfdy+TIYvJxLBs1jY/g==
+  dependencies:
+    minimist "1.2.0"
 
 "@iamstarkov/listr-update-renderer@0.4.1":
   version "0.4.1"
@@ -3903,7 +3910,7 @@ minimist@0.0.8:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
   integrity sha1-hX/Kv8M5fSYluCKCYuhqp6ARsF0=
 
-minimist@^1.1.1, minimist@^1.2.0:
+minimist@1.2.0, minimist@^1.1.1, minimist@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
   integrity sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
