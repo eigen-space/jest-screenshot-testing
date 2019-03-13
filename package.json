@@ -4,7 +4,7 @@
     "private": false,
     "scripts": {
         "build": "webpack --config ./webpack.config.package.js",
-        "lint": "tslint 'src/**/*.{ts,tsx}'",
+        "lint": "tslint --project tsconfig.json",
         "test": "jest",
         "build:publish": "yarn lint && yarn test && yarn build && npm publish ./dist --access public",
         "hooks:pre-commit": "yarn test && lint-staged",
