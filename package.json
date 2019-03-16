@@ -7,18 +7,13 @@
         "lint": "tslint --project tsconfig.json",
         "test": "jest",
         "build:publish": "yarn lint && yarn test && yarn build && npm publish ./dist --access public",
-        "hooks:pre-commit": "yarn test && lint-staged",
+        "hooks:pre-push": "yarn lint && yarn test",
         "script:update-deps": "node node_modules/@eigenspace/helper-scripts/scripts/project/update-deps.js"
     },
     "husky": {
         "hooks": {
-            "pre-commit": "yarn hooks:pre-commit"
+            "pre-commit": "yarn hooks:pre-push"
         }
-    },
-    "lint-staged": {
-        "*.{ts,tsx}": [
-            "yarn lint"
-        ]
     },
     "dependencies": {
         "enzyme": "3.8.0",
@@ -42,7 +37,6 @@
         "clean-webpack-plugin": "1.0.1",
         "copy-webpack-plugin": "4.6.0",
         "husky": "1.3.1",
-        "lint-staged": "8.1.3",
         "ts-jest": "23.10.5",
         "ts-loader": "5.3.3",
         "tslint": "5.12.1",
