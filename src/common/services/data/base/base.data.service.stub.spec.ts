@@ -6,7 +6,10 @@ describe('BaseDataServiceStub', () => {
 
     global.fetch = jest.fn();
     const fetch = global.fetch;
-    fetch.mockReturnValue(Promise.resolve({ ok: true, json: () => Promise.resolve([]) }));
+    fetch.mockReturnValue(Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve([])
+    }));
 
     beforeEach(() => {
         service = new BaseDataServiceStub();
@@ -23,10 +26,7 @@ describe('BaseDataServiceStub', () => {
         service.post('', data);
 
         const body = JSON.stringify(data);
-        const headers = {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-        };
+        const headers = { Accept: 'application/json', 'Content-Type': 'application/json' };
         expect(fetch).toBeCalledWith('', { body, headers, method: RequestMethodType.POST });
     });
 
@@ -37,7 +37,10 @@ describe('BaseDataServiceStub', () => {
 
     it('should throw error if response failed', () => {
         const data = { type: 'JsonData' };
-        fetch.mockReturnValue(Promise.resolve({ ok: false, json: () => Promise.resolve('ERROR') }));
+        fetch.mockReturnValue(Promise.resolve({
+            ok: false,
+            json: () => Promise.resolve('ERROR')
+        }));
         return expect(service.post('', data)).rejects.toEqual('ERROR');
     });
 });

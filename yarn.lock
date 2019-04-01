@@ -18,10 +18,10 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@eigenspace/codestyle@latest":
-  version "1.1.28"
-  resolved "https://registry.yarnpkg.com/@eigenspace/codestyle/-/codestyle-1.1.28.tgz#1a671b7de29adf3b209d210dd1706fe6f5e59b47"
-  integrity sha512-fyAtbqlkhUImr/OuwZDqmeEdnZOII2DzuWzKDNIVirCIHg/ficd7LkaqtvebGI7PzBFfB9aQ4nqthUv1TbXcqg==
+"@eigenspace/codestyle@1.1.46":
+  version "1.1.46"
+  resolved "https://registry.yarnpkg.com/@eigenspace/codestyle/-/codestyle-1.1.46.tgz#92a9b9e8f3ffaec42d6019a824ea6cba264468c2"
+  integrity sha512-abYXW1bIQF6rCONlKTxS532PftXavdluimM/EnxKEb+EsWXXjSCAFFaWJZdjcpJb4Q3MJ2v8Gs9mQb0aA4ZHhg==
 
 "@types/cheerio@*":
   version "0.22.10"

@@ -17,10 +17,7 @@ export class BaseDataService {
 
         if (data) {
             const body = JSON.stringify(data);
-            const headers = {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-            };
+            const headers = { Accept: 'application/json', 'Content-Type': 'application/json' };
             params = { ...params, headers, body };
         }
 
