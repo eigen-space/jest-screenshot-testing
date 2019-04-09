@@ -27,7 +27,8 @@ describe('BaseDataServiceStub', () => {
 
         const body = JSON.stringify(data);
         const headers = { Accept: 'application/json', 'Content-Type': 'application/json' };
-        expect(fetch).toBeCalledWith('', { body, headers, method: RequestMethodType.POST });
+        const method = RequestMethodType.POST;
+        expect(fetch).toBeCalledWith('', { body, headers, method });
     });
 
     it('should send correct request when data empty', () => {

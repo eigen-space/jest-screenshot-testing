@@ -8,9 +8,11 @@ import { Dictionary } from '../../common/types/dictionary';
 import { matchScreenshot } from '../screenshot-matcher';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { ReactMatcherConfig } from './react-matcher-config';
+import { Device } from '../../common/entities/device';
 
 interface ToMatchArgs {
     component: ReactElement<Dictionary> | ReactWrapper | ShallowWrapper;
+    device: Device;
     commonStyles: CSS;
     props: Dictionary;
     componentSource?: ReactElement<Dictionary>;
@@ -21,7 +23,7 @@ export async function toMatchComponentImageAsyncReact(this: MatcherState, data: 
         throw new Error('Serializer styles is not set. Please, set it in ReactMatcherConfig.');
     }
 
-    const { component, commonStyles, props, componentSource } = data;
+    const { component, device, commonStyles, props, componentSource } = data;
 
     let preparedComponent = component;
     let rawHtml: Html;
@@ -70,5 +72,5 @@ export async function toMatchComponentImageAsyncReact(this: MatcherState, data: 
         globalStyles += '\n';
     }
 
-    return matchScreenshot(this, html, `${globalStyles}${css}`);
+    return matchScreenshot(this, html, `${globalStyles}${css}`, device);
 }
