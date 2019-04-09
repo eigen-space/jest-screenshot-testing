@@ -29,10 +29,7 @@ describe('ScreenshotDataService', () => {
 
             const checkedBody: Dictionary = {
                 body: JSON.stringify({ html: 'html' }),
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
                 method: RequestMethodType.POST
             };
 

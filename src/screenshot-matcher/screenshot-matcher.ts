@@ -5,23 +5,35 @@ import { createHash } from 'crypto';
 import { toMatchImageSnapshot } from 'jest-image-snapshot';
 import { ScreenshotDataService } from '../common/services/data/screenshot/screenshot.data.service';
 import { LayoutMakerAppService } from '../common/services/app/layout-maker/layout-maker.app.service';
+import { Device } from '../common/entities/device';
 
 const photoMaker = new ScreenshotDataService();
 const layoutMaker = new LayoutMakerAppService();
 
-export async function matchScreenshot(context: MatcherState, html: Html, css: Css): Promise<Dictionary> {
+export async function matchScreenshot(
+    context: MatcherState,
+    html: Html,
+    css: Css,
+    device?: Device
+): Promise<Dictionary> {
     const page = layoutMaker.makeStringHtmlPage(html, css);
 
     const pageHash = createHash('sha1').update(page).digest('base64');
 
     context.snapshotState._updateSnapshot = 'none';
-    const snapshotMatch = context.snapshotState.match({ received: pageHash, testName: context.currentTestName });
+    const testName = context.currentTestName;
+    const snapshotMatch = context.snapshotState.match({ received: pageHash, testName });
     context.snapshotState.unmatched = 0;
 
     const isTestFirstRun = context.snapshotState.added;
     if (!snapshotMatch.pass || isTestFirstRun) {
-        const screenshot = await photoMaker.make(page);
+        const viewport = device && device.viewport;
+        const screenshot = await photoMaker.make(page, viewport);
         context.snapshotState._updateSnapshot = 'new';
+
+        if (device) {
+            context.currentTestName = `${context.currentTestName} ${device.name}`;
+        }
 
         // Different type with toMatchImageSnapshot
         // @ts-ignore

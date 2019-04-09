@@ -7,3 +7,5 @@ declare module 'jest-screenshot-testing';
 export * from './types/screenshot-matcher/react/react-to-match-image-snapshot';
 // @ts-ignore
 export * from './types/screenshot-matcher/react/react-matcher-config';
+// @ts-ignore
+export { Device } from './types/common/entities/device';
