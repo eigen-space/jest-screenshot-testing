@@ -64,9 +64,6 @@ to DOM-world and is used on top level of application. It is peer dependency of
 `react-styleguidist`. 
 * `react-test-renderer` - render React components to pure JavaScript objects.
 * `jest` - testing framework to write unit specs (including snapshots).
-snapshots. It extends jest and add method `toMatchImageSnapshot`. It creates image snapshot
-if there is no one like standard jest snapshot tool does. 
-For instance, `expect(componentImage).toMatchImageSnapshot()`.
 * `jest-image-snapshot` - library provides ability to check difference between two image
 
 
