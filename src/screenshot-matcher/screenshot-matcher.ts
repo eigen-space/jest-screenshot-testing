@@ -16,6 +16,15 @@ export async function matchScreenshot(
     css: Css,
     device?: Device
 ): Promise<Dictionary> {
+    if (device) {
+        css = `
+            ${css}
+
+            html { height: 100%; }
+            body { height: 100%; }
+        `;
+    }
+
     const page = layoutMaker.makeStringHtmlPage(html, css);
 
     const pageHash = createHash('sha1').update(page).digest('base64');
