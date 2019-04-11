@@ -9,3 +9,5 @@ export * from './types/screenshot-matcher/react/react-to-match-image-snapshot';
 export * from './types/screenshot-matcher/react/react-matcher-config';
 // @ts-ignore
 export { Device } from './types/common/entities/device';
+// @ts-ignore
+export { devices } from './types/devices/devices';
