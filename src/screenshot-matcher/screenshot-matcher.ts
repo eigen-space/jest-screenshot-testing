@@ -40,10 +40,6 @@ export async function matchScreenshot(
         const screenshot = await photoMaker.make(page, viewport);
         context.snapshotState._updateSnapshot = 'new';
 
-        if (device) {
-            context.currentTestName = `${context.currentTestName} ${device.name}`;
-        }
-
         // Different type with toMatchImageSnapshot
         // @ts-ignore
         const screenshotMatch = toMatchImageSnapshot.call(context, screenshot);
