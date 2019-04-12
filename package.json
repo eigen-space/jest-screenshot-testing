@@ -1,6 +1,6 @@
 {
     "name": "@eigenspace/jest-screenshot-testing",
-    "version": "0.1.9",
+    "version": "0.1.10",
     "private": false,
     "scripts": {
         "build": "webpack --config ./webpack.config.package.js",
