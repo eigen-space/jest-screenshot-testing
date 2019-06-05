@@ -1,11 +1,11 @@
 import { MatcherState } from 'jest-types-workaround';
 import { Css, Html } from '../@types/common';
-import { Dictionary } from '../common/types/dictionary';
+import { Dictionary } from '@eigenspace/common-types/src/types/dictionary';
 import { createHash } from 'crypto';
 import { toMatchImageSnapshot } from 'jest-image-snapshot';
 import { ScreenshotDataService } from '../common/services/data/screenshot/screenshot.data.service';
 import { LayoutMakerAppService } from '../common/services/app/layout-maker/layout-maker.app.service';
-import { Device } from '../common/entities/device';
+import { Device } from '..';
 
 const photoMaker = new ScreenshotDataService();
 const layoutMaker = new LayoutMakerAppService();

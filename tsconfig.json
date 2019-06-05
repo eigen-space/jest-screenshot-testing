@@ -3,11 +3,9 @@
     "compilerOptions": {
         "sourceMap": false,
         "moduleResolution": "node",
-        "outDir": "dist/types",
-        "target": "es6",
-        "typeRoots": [
-            "node_modules/@types"
-        ]
+        "module": "commonjs",
+        "skipLibCheck": true,
+        "outDir": "dist"
     },
     "include": [
         "src",

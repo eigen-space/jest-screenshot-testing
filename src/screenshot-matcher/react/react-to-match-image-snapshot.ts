@@ -4,11 +4,11 @@ import { create, ReactTestRendererJSON } from 'react-test-renderer';
 import toJson from 'enzyme-to-json';
 import { MatcherState } from 'jest-types-workaround';
 import { Html } from '../../@types/common';
-import { Dictionary } from '../../common/types/dictionary';
+import { Dictionary } from '@eigenspace/common-types/src/types/dictionary';
 import { matchScreenshot } from '../screenshot-matcher';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { ReactMatcherConfig } from './react-matcher-config';
-import { Device } from '../../common/entities/device';
+import { Device } from '../..';
 
 interface ToMatchArgs {
     component: ReactElement<Dictionary> | ReactWrapper | ShallowWrapper;

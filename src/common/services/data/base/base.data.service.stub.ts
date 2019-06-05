@@ -1,5 +1,5 @@
 import { BaseDataService } from './base.data.service';
-import { Dictionary } from '../../../types/dictionary';
+import { Dictionary } from '@eigenspace/common-types/src/types/dictionary';
 
 export class BaseDataServiceStub extends BaseDataService {
 
