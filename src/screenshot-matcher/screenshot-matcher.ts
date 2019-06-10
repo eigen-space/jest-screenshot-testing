@@ -1,11 +1,11 @@
 import { MatcherState } from 'jest-types-workaround';
 import { Css, Html } from '../@types/common';
-import { Dictionary } from '../common/types/dictionary';
+import { Dictionary } from '@eigenspace/common-types/src/types/dictionary';
 import { createHash } from 'crypto';
 import { toMatchImageSnapshot } from 'jest-image-snapshot';
 import { ScreenshotDataService } from '../common/services/data/screenshot/screenshot.data.service';
 import { LayoutMakerAppService } from '../common/services/app/layout-maker/layout-maker.app.service';
-import { Device } from '../common/entities/device';
+import { Device } from '..';
 
 const photoMaker = new ScreenshotDataService();
 const layoutMaker = new LayoutMakerAppService();
@@ -16,6 +16,15 @@ export async function matchScreenshot(
     css: Css,
     device?: Device
 ): Promise<Dictionary> {
+    if (device) {
+        css = `
+            ${css}
+
+            html { height: 100%; }
+            body { height: 100%; }
+        `;
+    }
+
     const page = layoutMaker.makeStringHtmlPage(html, css);
 
     const pageHash = createHash('sha1').update(page).digest('base64');
@@ -30,10 +39,6 @@ export async function matchScreenshot(
         const viewport = device && device.viewport;
         const screenshot = await photoMaker.make(page, viewport);
         context.snapshotState._updateSnapshot = 'new';
-
-        if (device) {
-            context.currentTestName = `${context.currentTestName} ${device.name}`;
-        }
 
         // Different type with toMatchImageSnapshot
         // @ts-ignore

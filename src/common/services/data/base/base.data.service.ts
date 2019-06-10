@@ -1,4 +1,4 @@
-import { Dictionary } from '../../../types/dictionary';
+import { Dictionary } from '@eigenspace/common-types/src/types/dictionary';
 import { RequestMethodType } from '../../../enum/request-method.enum';
 
 export class BaseDataService {

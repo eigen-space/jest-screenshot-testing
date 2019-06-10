@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TestUtils #boxWrap should set default value, any key in box undefined 1`] = `
+Object {
+  "component": <div
+    style={
+      Object {
+        "height": "auto",
+        "width": "fit-content",
+      }
+    }
+  >
+    <div>
+      Component
+    </div>
+  </div>,
+}
+`;
+
+exports[`TestUtils #boxWrap should set defined box value 1`] = `
+Object {
+  "component": <div
+    style={
+      Object {
+        "height": "22px",
+        "width": "43px",
+      }
+    }
+  >
+    <div>
+      Component
+    </div>
+  </div>,
+}
+`;

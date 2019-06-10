@@ -1,5 +1,5 @@
 import { ScreenshotDataService } from './screenshot.data.service';
-import { Dictionary } from '../../../types/dictionary';
+import { Dictionary } from '@eigenspace/common-types/src/types/dictionary';
 import { RequestMethodType } from '../../../enum/request-method.enum';
 import { Config } from '../../../config/config';
 

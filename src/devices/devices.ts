@@ -5,7 +5,7 @@ export const devices = {
         name: 'mobile',
         viewport: { width: 576, height: 720 }
     }),
-    table: new Device({
+    tablet: new Device({
         name: 'tablet',
         viewport: { width: 768, height: 1024 }
     }),
