@@ -146,10 +146,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@eigenspace/codestyle@latest":
-  version "1.1.49"
-  resolved "https://registry.yarnpkg.com/@eigenspace/codestyle/-/codestyle-1.1.49.tgz#842c2efdd1d6837301b289266318c9058eebd682"
-  integrity sha512-RNFEKw+FzuaONKkJSn79HJbe+X62/fqF9onM5ZjiuYDVG9lwXwcITCdDADm6lU3bhDq88sm/2IxvJYWFDN1tJQ==
+"@eigenspace/codestyle@1.1.54":
+  version "1.1.54"
+  resolved "https://registry.yarnpkg.com/@eigenspace/codestyle/-/codestyle-1.1.54.tgz#2177df1fd6b387f04ddb589966f36dd4073c1350"
+  integrity sha512-CMQtL9nt8PVKV0AP1Cjfzf4UguKgbclSp3uwRY2fmf7hdtJA3HHrcJP/jM9WFtVm0Vwl9rHVqwAay8nbigvGEQ==
 
 "@jest/console@^24.7.1":
   version "24.7.1"
@@ -5976,6 +5976,11 @@ webpack-cli@3.2.3:
     supports-color "^5.5.0"
     v8-compile-cache "^2.0.2"
     yargs "^12.0.4"
+
+webpack-node-externals@1.7.2:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/webpack-node-externals/-/webpack-node-externals-1.7.2.tgz#6e1ee79ac67c070402ba700ef033a9b8d52ac4e3"
+  integrity sha512-ajerHZ+BJKeCLviLUUmnyd5B4RavLF76uv3cs6KNuO8W+HuQaEs0y0L7o40NQxdPy5w0pcv8Ew7yPUAQG0UdCg==
 
 webpack-sources@^1.1.0, webpack-sources@^1.3.0:
   version "1.3.0"
