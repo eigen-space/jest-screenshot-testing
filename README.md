@@ -77,4 +77,4 @@ See `webpack.config.js`.
 * `husky` - used for configure git hooks.
 * `lint-staged` - used for configure linters against staged git files.
 * `whatwg-fetch` - this project is a polyfill for `window.fetch`.
-* `webpack-cli` - command line interface dor webpack.
+* `webpack-cli` - command line interface for webpack.
