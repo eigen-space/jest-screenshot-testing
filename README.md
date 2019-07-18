@@ -39,7 +39,9 @@ Supporting another frameworks and simple css / html are in progress.
 
 * `react`: `16.x`,
 * `react-dom`: `16.x`,
-* `jest`: `24.x`
+* `jest`: `24.x`,
+* `jest-styled-components`: `>= 6.3.3`,
+* `styled-components`: `4.x`
 
 # Usage example
 
@@ -61,15 +63,17 @@ and get an instance (real class).
 # Why do we have that dev dependencies?
 
 * `@eigenspace/codestyle` - includes tslint rules, config for typescript.
-* `@types/*` - contains type definitions for specific library.
 * `@eigenspace/common-types` - contains common type definitions for our libraries.
+* `@eigenspace/helper-scripts` - common scripts for dev. environment.
+* `@types/*` - contains type definitions for specific library.
+* `husky` - used for configure git hooks.
+* `jest` - testing framework to write unit specs (including snapshots).
+* `lint-staged` - used for configure linters against staged git files.
 * `react` - used as utils for snapshot testing.    
 * `react-dom` - used for render static markup.
-* `jest` - testing framework to write unit specs (including snapshots).
+* `jest-styled-components` - a set of utilities for testing Styled Components with Jest.
+* `styled-components` - requirement of jest-styled-components.
 * `ts-jest` - it lets you use Jest to test projects written in TypeScript.
 * `tslint` - it checks TypeScript code for readability, maintainability, and functionality errors.
 * `typescript` - is a superset of JavaScript that have static type-checking and ECMAScript features.
-* `husky` - used for configure git hooks.
-* `lint-staged` - used for configure linters against staged git files.
 * `whatwg-fetch` - this project is a polyfill for `window.fetch`.
-* `@eigenspace/helper-scripts` - common scripts for dev. environment.
