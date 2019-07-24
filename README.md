@@ -62,7 +62,7 @@ and get an instance (real class).
 
 # Why do we have that dev dependencies?
 
-* `@eigenspace/codestyle` - includes tslint rules, config for typescript.
+* `@eigenspace/codestyle` - includes lint rules, config for typescript.
 * `@eigenspace/common-types` - contains common type definitions for our libraries.
 * `@eigenspace/helper-scripts` - common scripts for dev. environment.
 * `@types/*` - contains type definitions for specific library.
@@ -74,6 +74,6 @@ and get an instance (real class).
 * `jest-styled-components` - a set of utilities for testing Styled Components with Jest.
 * `styled-components` - requirement of jest-styled-components.
 * `ts-jest` - it lets you use Jest to test projects written in TypeScript.
-* `tslint` - it checks TypeScript code for readability, maintainability, and functionality errors.
+* `eslint` - it checks code for readability, maintainability, and functionality errors.
 * `typescript` - is a superset of JavaScript that have static type-checking and ECMAScript features.
 * `whatwg-fetch` - this project is a polyfill for `window.fetch`.

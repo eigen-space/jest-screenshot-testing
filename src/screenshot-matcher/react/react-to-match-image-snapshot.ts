@@ -18,7 +18,7 @@ interface ToMatchArgs {
     componentSource?: ReactElement<Dictionary>;
 }
 
-export async function toMatchComponentImageAsyncReact(this: MatcherState, data: ToMatchArgs): Promise<Dictionary> {
+export async function toMatchComponentImageAsyncReact(ctx: MatcherState, data: ToMatchArgs): Promise<Dictionary> {
     if (!ReactMatcherConfig.serializer) {
         throw new Error('Serializer styles is not set. Please, set it in ReactMatcherConfig.');
     }
@@ -60,7 +60,7 @@ export async function toMatchComponentImageAsyncReact(this: MatcherState, data: 
     let globalStyles = '';
     if (ReactMatcherConfig.globalStyles) {
         // There no correct interface for GlobalStyles.
-        // tslint:disable-next-line:no-any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         globalStyles += (ReactMatcherConfig.globalStyles as any).rules.join('');
     }
 
@@ -72,5 +72,5 @@ export async function toMatchComponentImageAsyncReact(this: MatcherState, data: 
         globalStyles += '\n';
     }
 
-    return matchScreenshot(this, html, `${globalStyles}${css}`, device);
+    return matchScreenshot(ctx, html, `${globalStyles}${css}`, device);
 }
