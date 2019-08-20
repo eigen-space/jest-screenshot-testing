@@ -34,15 +34,14 @@ Supporting another frameworks and simple css / html are in progress.
     
 6. Don't forget add: `'<rootDir>/config/jest/setup/expect.setup.tsx'` to `setupFiles`.
 
-# Requirements for consumer
 
-* react
-* react-dom
-* enzyme
-* enzyme-to-json
-* jest
-* jest-image-snapshot
-* react-test-renderer
+# Environmental requirements
+
+* `react`: `16.x`,
+* `react-dom`: `16.x`,
+* `jest`: `24.x`,
+* `jest-styled-components`: `>= 6.3.3`,
+* `styled-components`: `4.x`
 
 # Usage example
 
@@ -56,28 +55,26 @@ await expect({ component, props }).toMatchComponentImageAsync();
 * `enzyme` - api-helper for Jest testing. Added abilities to set state for components 
 and get an instance (real class). 
 * `enzyme-to-json` - a requirement for jest-screenshot-testing library.
-* `react` - we use react :) But look at preact. It is an option.
-Honestly, it should be peer dependency for component library. It does not 
-part of the library.    
-* `react-dom` - it provides DOM-specific methods to step out from react-world
-to DOM-world and is used on top level of application. It is peer dependency of
 `react-styleguidist`. 
 * `react-test-renderer` - render React components to pure JavaScript objects.
-* `jest` - testing framework to write unit specs (including snapshots).
 * `jest-image-snapshot` - library provides ability to check difference between two image
-* `jest-styled-components` - a set of utilities for testing Styled Components with Jest.
-* `styled-components` - requirement of `jest-styled-components`.
 * `@eigenspace/jest-testing-utils` - contains jest helpers and patchers.
 
 # Why do we have that dev dependencies?
 
-* `@eigenspace/codestyle` - includes tslint rules, config for typescript.
-* `@types/*` - contains type definitions for specific library.
+* `@eigenspace/codestyle` - includes lint rules, config for typescript.
 * `@eigenspace/common-types` - contains common type definitions for our libraries.
-* `ts-jest` - it lets you use Jest to test projects written in TypeScript.
-* `tslint` - it checks TypeScript code for readability, maintainability, and functionality errors.
-* `typescript` - is a superset of JavaScript that have static type-checking and ECMAScript features.
-* `husky` - used for configure git hooks.
-* `lint-staged` - used for configure linters against staged git files.
-* `whatwg-fetch` - this project is a polyfill for `window.fetch`.
+* `@eigenspace/eslint-config-codestyle` - package with eslint configurations.
 * `@eigenspace/helper-scripts` - common scripts for dev. environment.
+* `@types/*` - contains type definitions for specific library.
+* `husky` - used for configure git hooks.
+* `jest` - testing framework to write unit specs (including snapshots).
+* `lint-staged` - used for configure linters against staged git files.
+* `react` - used as utils for snapshot testing.    
+* `react-dom` - used for render static markup.
+* `jest-styled-components` - a set of utilities for testing Styled Components with Jest.
+* `styled-components` - requirement of jest-styled-components.
+* `ts-jest` - it lets you use Jest to test projects written in TypeScript.
+* `eslint` - it checks code for readability, maintainability, and functionality errors.
+* `typescript` - is a superset of JavaScript that have static type-checking and ECMAScript features.
+* `whatwg-fetch` - this project is a polyfill for `window.fetch`.
