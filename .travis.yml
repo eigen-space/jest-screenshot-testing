@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+  - "11.10"
+git:
+  depth: false
+cache:
+  directories:
+    - node_modules
+if: branch = master
+script:
+  - git checkout $TRAVIS_BRANCH
+  - yarn
+  - git remote set-url origin https://derlagg:$GITHUB_API_KEY@github.com/eigen-space/jest-screenshot-testing.git
+  - chmod +x ./node_modules/@eigenspace/helper-scripts/scripts/ci/detect-autocommit.sh
+  - if ./node_modules/@eigenspace/helper-scripts/scripts/ci/detect-autocommit.sh ; then
+      yarn lint && yarn test && yarn build && npm run deploy:publish;
+    fi
+before_install:
+  - echo "//registry.npmjs.org/:_authToken=\${NPM_ACCESS_TOKEN}" > .npmrc
+notifications:
+  slack:
+    rooms:
+      - eigenspaceworkspace:kmQErenC9R4KA4kWyb1j8UaS#ci
+    on_success: change
+    on_failure: always
