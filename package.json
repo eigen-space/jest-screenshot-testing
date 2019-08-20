@@ -39,6 +39,7 @@
     "devDependencies": {
         "@eigenspace/codestyle": "latest",
         "@eigenspace/common-types": "0.0.5",
+        "@eigenspace/eslint-config-codestyle": "latest",
         "@eigenspace/helper-scripts": "1.0.77",
         "@types/enzyme": "3.1.17",
         "@types/jest": "22.2.2",

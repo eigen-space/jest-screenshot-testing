@@ -64,6 +64,7 @@ and get an instance (real class).
 
 * `@eigenspace/codestyle` - includes lint rules, config for typescript.
 * `@eigenspace/common-types` - contains common type definitions for our libraries.
+* `@eigenspace/eslint-config-codestyle` - package with eslint configurations.
 * `@eigenspace/helper-scripts` - common scripts for dev. environment.
 * `@types/*` - contains type definitions for specific library.
 * `husky` - used for configure git hooks.
