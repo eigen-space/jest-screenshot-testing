@@ -2,13 +2,13 @@ import { cloneElement, createElement, ReactElement } from 'react';
 import { CommonWrapper, mount, ReactWrapper, ShallowWrapper } from 'enzyme';
 import { create, ReactTestRendererJSON } from 'react-test-renderer';
 import toJson from 'enzyme-to-json';
-import { MatcherState } from 'jest-types-workaround';
 import { Html } from '../../@types/common';
 import { Dictionary } from '@eigenspace/common-types/src/types/dictionary';
 import { matchScreenshot } from '../screenshot-matcher';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { ReactMatcherConfig } from './react-matcher-config';
 import { Device } from '../..';
+import { MatcherState } from 'jest-types-workaround';
 
 interface ToMatchArgs {
     component: ReactElement<Dictionary> | ReactWrapper | ShallowWrapper;
@@ -18,7 +18,7 @@ interface ToMatchArgs {
     componentSource?: ReactElement<Dictionary>;
 }
 
-export async function toMatchComponentImageAsyncReact(ctx: MatcherState, data: ToMatchArgs): Promise<Dictionary> {
+export async function toMatchComponentImageAsyncReact(data: ToMatchArgs): Promise<Dictionary> {
     if (!ReactMatcherConfig.serializer) {
         throw new Error('Serializer styles is not set. Please, set it in ReactMatcherConfig.');
     }
@@ -72,5 +72,6 @@ export async function toMatchComponentImageAsyncReact(ctx: MatcherState, data: T
         globalStyles += '\n';
     }
 
-    return matchScreenshot(ctx, html, `${globalStyles}${css}`, device);
+    // @ts-ignore
+    return matchScreenshot(this as MatcherState, html, `${globalStyles}${css}`, device);
 }
