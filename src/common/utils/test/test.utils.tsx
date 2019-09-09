@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { ReactElement } from 'react';
 import { ReactWrapper } from 'enzyme';
-import { EmulateActionType } from './test.utils.enum';
 import { Dictionary } from '@eigenspace/common-types/src/types/dictionary';
 
 export interface BoxStyle {
@@ -27,7 +26,7 @@ export class TestUtils {
     /**
      * This method add class to element to be able use puppeteer's actions like hover and focus.
      */
-    static emulateAction(wrapper: ReactWrapper, action: EmulateActionType, payload = ''): void {
+    static emulateAction(wrapper: ReactWrapper, action: string, payload = ''): void {
         wrapper.getDOMNode().setAttribute(action, payload);
     }
 }
