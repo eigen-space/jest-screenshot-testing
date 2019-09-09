@@ -1,6 +1,6 @@
 {
     "name": "@eigenspace/jest-screenshot-testing",
-    "version": "0.1.15",
+    "version": "0.1.16",
     "private": false,
     "scripts": {
         "build": "yarn compile && yarn copy:assets && yarn script:remove-garbage-declaration && yarn bundle-dts",
