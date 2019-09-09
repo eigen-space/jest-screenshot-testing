@@ -13,25 +13,22 @@ Supporting another frameworks and simple css / html are in progress.
 
 1. Install all requirements to dev environment.
 2. Add the `@eigenspace/jest-screenshot-testing` as dependency.
-3. Import the matcher (React example):
+3. Import the patcher (React example):
     ```
-    import { toMatchComponentImageAsyncReact as toMatchComponentImageAsync } from '@eigenspace/jest-screenshot-testing';
+        import { MatchImagePatcher } from '@eigenspace/jest-screenshot-testing';
     ```
-4. Import `expect` and add to `expect.setup.tsx`:
+4. Define configuration according to PatcherArgs interface:
     ```
-    expect.extend({ toMatchComponentImageAsync });
+    const options = {
+        screenshoterUrl: environment.apiUrls.screenshoterUrl,
+        globalStyles: TestGlobalStyles.globalStyle,
+        themeWrapper: Init
+    };
     ```
-5. Import the configuration class for the matcher and set settings:
+5. Pass configuration to patcher
     ```
-    ReactMatcherConfig.globalStyles = (GlobalStyles as any).globalStyle;
-    ReactMatcherConfig.themeWrapper = ThemeWrapper;
-    ReactMatcherConfig.screenshoterUrl = environment.apiUrls.screenshoterUrl;
-    ReactMatcherConfig.serializer = serializer.styleSheetSerializer;
+        new MatchImagePatcher().do(options);
     ```
-    
-    where:
-    - serializer is `jest-styled-components/serializer`
-    
 6. Don't forget add: `'<rootDir>/config/jest/setup/expect.setup.tsx'` to `setupFiles`.
 
 
