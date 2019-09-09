@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { ReactElement } from 'react';
 import { ReactWrapper } from 'enzyme';
-import 'jest-styled-components';
 import { EmulateActionType } from './test.utils.enum';
 import { Dictionary } from '@eigenspace/common-types/src/types/dictionary';
 
