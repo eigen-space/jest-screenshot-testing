@@ -8,6 +8,7 @@ cache:
   directories:
     - node_modules
 script:
+  - git checkout $TRAVIS_BRANCH
   - git remote set-url origin https://$USER:$GITHUB_API_KEY@github.com/eigen-space/jest-screenshot-testing.git
   - yarn lint && yarn test && yarn build && npm run deploy:publish;
 before_install:
