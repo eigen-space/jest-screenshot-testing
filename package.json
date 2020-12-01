@@ -40,7 +40,7 @@
         "@eigenspace/codestyle": "latest",
         "@eigenspace/common-types": "0.0.5",
         "@eigenspace/eslint-config-codestyle": "latest",
-        "@eigenspace/helper-scripts": "1.0.77",
+        "@eigenspace/helper-scripts": "3.0.8",
         "@types/enzyme": "3.1.17",
         "@types/jest": "22.2.2",
         "@types/jest-image-snapshot": "2.8.0",

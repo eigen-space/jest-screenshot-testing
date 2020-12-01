@@ -8,8 +8,8 @@ import { toMatchComponentImageAsyncReact } from '../../..';
 const expect = require('expect');
 
 export interface PatcherArgs {
-    globalStyles: GlobalStyleComponent<{}, {}>;
-    themeWrapper: ComponentClass;
+    globalStyles?: GlobalStyleComponent<{}, {}>;
+    themeWrapper?: ComponentClass;
     screenshoterUrl: string;
 }
 
